@@ -15,14 +15,15 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import de.pandigo.cars.models.car.Car;
+import de.pandigo.cars.models.car.CarBuilder;
 import de.pandigo.cars.persistence.CarsService;
 
 @Api(name = "Car Management Service", description = "Methods for managing the car pool", group = "Main")
 @RestController
-@RequestMapping("/carManager")
-public class CarManagementController {
+@RequestMapping("/carManagerRestApi")
+public class CarManagerRestController {
 
-    private final Logger logger = LoggerFactory.getLogger(CarManagementController.class);
+    private final Logger logger = LoggerFactory.getLogger(CarManagerRestController.class);
 
     @Autowired
     private CarsService carsService;
@@ -39,7 +40,8 @@ public class CarManagementController {
     @RequestMapping(value = "/addCar", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)
     public void addCar() {
-        this.logger.debug("Random Car Requested");
+        this.carsService.addCar(new CarBuilder().build());
+        this.logger.debug("Car add requested.");
     }
 
 }

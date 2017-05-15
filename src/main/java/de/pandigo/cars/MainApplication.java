@@ -8,10 +8,8 @@ import org.springframework.context.annotation.ImportResource;
 @SpringBootApplication
 @EnableJSONDoc
 @ImportResource("classpath:spring-config.xml")
-public final class MainApplication {
+public class MainApplication {
 
-    private MainApplication() {
-    }
 
     public static void main(final String[] args) {
         SpringApplication.run(MainApplication.class, args);

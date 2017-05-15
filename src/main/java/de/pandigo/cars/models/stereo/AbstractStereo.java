@@ -5,6 +5,8 @@ import java.util.List;
 
 public abstract class AbstractStereo implements Serializable{
 
+	private static final long serialVersionUID = -2643637527568965735L;
+
 	private boolean on = false;
 	private int level = 0;
 	private List<SourceOption> sourceOptionList;
