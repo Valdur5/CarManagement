@@ -5,12 +5,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import org.springframework.stereotype.Service;
+
 import de.pandigo.cars.models.car.Brand;
 import de.pandigo.cars.models.car.Car;
 import de.pandigo.cars.models.car.CarBuilder;
 import de.pandigo.cars.models.stereo.KenwoodStereoImpl;
 
-public class CarsServiceAnotherMock implements CarsService {
+@Service
+public class CarsServiceDao implements CarsService {
 
 	private final List<Car> cars = new ArrayList<>();
 	private static final int MAX_KM_AMOUNT = 200000;
@@ -30,7 +33,7 @@ public class CarsServiceAnotherMock implements CarsService {
 		        this.random.nextInt(MAX_DAY - MIN_DAY) + MIN_DAY);
 	}
 
-	public CarsServiceAnotherMock() {
+	public CarsServiceDao() {
 		for (int i = 1; i <= 10; i++) {
 			this.cars.add(new CarBuilder()
 					.withId(i)
