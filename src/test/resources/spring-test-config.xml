@@ -5,6 +5,6 @@
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <!-- Here you can configure which Class should be used for the database -->
-    <bean id="CarsServiceId" class="de.pandigo.cars.persistence.CarsServiceMock"/>
+    <bean id="CarsServiceId" class="de.pandigo.cars.persistence.CarsServiceAnotherMock" scope="test"/>
 
 </beans>

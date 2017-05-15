@@ -14,6 +14,8 @@ public class Car implements Serializable {
 
 	private static final long serialVersionUID = -2643637573568965735L;
 
+	@ApiObjectField(description = "The id of the car.", required = true)
+	private int carId;
 	@ApiObjectField(description = "The amount of seats available in the car.", required = true)
 	private int seats;
 	@ApiObjectField(description = "The brand of the car.", required = true)
@@ -24,6 +26,15 @@ public class Car implements Serializable {
 	private int km;
 	@ApiObjectField(description = "The stereo playing device which is used in the car.")
 	private AbstractStereo stereo;
+
+
+	public int getId() {
+		return this.carId;
+	}
+
+	void setId(final int carId) {
+		this.carId = carId;
+	}
 
 	public AbstractStereo getStereo() {
 		return this.stereo;

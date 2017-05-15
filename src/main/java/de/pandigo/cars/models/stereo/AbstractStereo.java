@@ -3,6 +3,8 @@ package de.pandigo.cars.models.stereo;
 import java.io.Serializable;
 import java.util.List;
 
+import de.pandigo.cars.exceptions.StereoConfigRuntimeExceptions;
+
 public abstract class AbstractStereo implements Serializable{
 
 	private static final long serialVersionUID = -2643637527568965735L;
@@ -54,8 +56,10 @@ public abstract class AbstractStereo implements Serializable{
 	}
 
 	public void setLevel(final int level) {
-		if (level <= this.maxLevel && level >= 0) {
+		if (level >= 0 && level <= this.maxLevel) {
 			this.level = level;
+		} else {
+			throw new StereoConfigRuntimeExceptions("That would exceed the sound level range of this stereo player.");
 		}
 	}
 

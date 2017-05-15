@@ -8,7 +8,6 @@ import java.util.Random;
 import de.pandigo.cars.models.car.Brand;
 import de.pandigo.cars.models.car.Car;
 import de.pandigo.cars.models.car.CarBuilder;
-import de.pandigo.cars.models.stereo.JVCStereoImpl;
 import de.pandigo.cars.models.stereo.KenwoodStereoImpl;
 
 public class CarsServiceMock implements CarsService {
@@ -35,28 +34,16 @@ public class CarsServiceMock implements CarsService {
     }
 
     public CarsServiceMock() {
-
-        this.cars.add(new CarBuilder()
-                .withBrand(Brand.Audi)
-                .withKmDriven(this.random.nextInt(MAX_KM_AMOUNT))
-                .withNumberOfSeats(this.random.nextInt(MAX_SEATS-MIN_SEATS)+MIN_SEATS)
-                .withProductionDate(randomDate())
-                .withStereoDevice(new KenwoodStereoImpl())
-                .build());
-        this.cars.add(new CarBuilder()
-                .withBrand(Brand.BMW)
-                .withKmDriven(this.random.nextInt(MAX_KM_AMOUNT))
-                .withNumberOfSeats(this.random.nextInt(MAX_SEATS-MIN_SEATS)+MIN_SEATS)
-                .withProductionDate(randomDate())
-                .withStereoDevice(new JVCStereoImpl())
-                .build());
-        this.cars.add(new CarBuilder()
-                .withBrand(Brand.BMW)
-                .withKmDriven(this.random.nextInt(MAX_KM_AMOUNT))
-                .withNumberOfSeats(this.random.nextInt(MAX_SEATS-MIN_SEATS)+MIN_SEATS)
-                .withProductionDate(randomDate())
-                .withStereoDevice(new JVCStereoImpl())
-                .build());
+        for (int i = 1; i <= 3; i++) {
+            this.cars.add(new CarBuilder()
+                    .withId(i)
+                    .withBrand(Brand.randomBrand())
+                    .withKmDriven(this.random.nextInt(MAX_KM_AMOUNT))
+                    .withNumberOfSeats(this.random.nextInt(MAX_SEATS - MIN_SEATS) + MIN_SEATS)
+                    .withProductionDate(randomDate())
+                    .withStereoDevice(new KenwoodStereoImpl())
+                    .build());
+        }
     }
 
     @Override

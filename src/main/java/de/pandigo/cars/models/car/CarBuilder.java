@@ -16,6 +16,11 @@ public class CarBuilder {
         this.car = new Car();
     }
 
+    public CarBuilder withId(final int carId){
+        this.car.setId(carId);
+        return this;
+    }
+
     public CarBuilder withNumberOfSeats(final int numberOfSeats) {
         if(numberOfSeats < 1 || numberOfSeats > MAX_SEATS_POSSIBLE) {
             throw new CarConfigRuntimeException("The amount of seats you have chosen is not allowed.");
