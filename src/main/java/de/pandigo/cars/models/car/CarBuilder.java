@@ -17,7 +17,7 @@ public class CarBuilder {
     }
 
     public CarBuilder withNumberOfSeats(final int numberOfSeats) {
-        if(numberOfSeats < 1 && numberOfSeats > MAX_SEATS_POSSIBLE) {
+        if(numberOfSeats < 1 || numberOfSeats > MAX_SEATS_POSSIBLE) {
             throw new CarConfigRuntimeException("The amount of seats you have chosen is not allowed.");
         }
         this.car.setSeats(numberOfSeats);
@@ -25,7 +25,7 @@ public class CarBuilder {
     }
 
     public CarBuilder withKmDriven(final int kmDriven) {
-        if(kmDriven < 0 && kmDriven > MAX_KM_DRIVEN) {
+        if(kmDriven < 0 || kmDriven > MAX_KM_DRIVEN) {
             throw new CarConfigRuntimeException("The amount of km driven makes no sense.");
         }
         this.car.setKm(kmDriven);
