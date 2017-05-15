@@ -1,10 +1,11 @@
 package de.pandigo.cars.models.stereo;
 
+import java.io.Serializable;
 import java.util.List;
 
-public abstract class AbstractStereo {
+public abstract class AbstractStereo implements Serializable{
 
-	private boolean isOn = false;
+	private boolean on = false;
 	private int level = 0;
 	private List<SourceOption> sourceOptionList;
 	private int maxLevel = 0;
@@ -43,11 +44,11 @@ public abstract class AbstractStereo {
     }
 
 	public void toggleOnOff() {
-		this.isOn = !this.isOn;
+		this.on = !this.on;
 	}
 
 	public boolean isOn() {
-		return this.isOn;
+		return this.on;
 	}
 
 	public void setLevel(final int level) {

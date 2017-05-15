@@ -12,39 +12,24 @@ import de.pandigo.cars.models.stereo.KenwoodStereoImpl;
 
 public class CarsServiceRandomMock implements CarsService {
 
-    private final ArrayList<Car> cars = new ArrayList<>();
+	private final List<Car> cars = new ArrayList<>();
 
-    public CarsServiceRandomMock() {
-        this.cars.add(new CarBuilder()
-                .withBrand(Brand.randomBrand())
-                .withKmDriven(5000)
-                .withNumberOfSeats(5)
-                .withProductionDate(LocalDate.of(2012,4,17))
-                .withStereoDevice(new KenwoodStereoImpl())
-                .build());
-        this.cars.add(new CarBuilder()
-                .withBrand(Brand.randomBrand())
-                .withKmDriven(55000)
-                .withNumberOfSeats(4)
-                .withProductionDate(LocalDate.of(2004,1,11))
-                .withStereoDevice(new KenwoodStereoImpl())
-                .build());
-        this.cars.add(new CarBuilder()
-                .withBrand(Brand.randomBrand())
-                .withKmDriven(125000)
-                .withNumberOfSeats(6)
-                .withProductionDate(LocalDate.of(2011,4,11))
-                .withStereoDevice(new JVCStereoImpl())
-                .build());
-    }
+	public CarsServiceRandomMock() {
+		this.cars.add(new CarBuilder().withBrand(Brand.randomBrand()).withKmDriven(5000).withNumberOfSeats(5)
+		        .withProductionDate(LocalDate.of(2012, 4, 17)).withStereoDevice(new KenwoodStereoImpl()).build());
+		this.cars.add(new CarBuilder().withBrand(Brand.randomBrand()).withKmDriven(55000).withNumberOfSeats(4)
+		        .withProductionDate(LocalDate.of(2004, 1, 11)).withStereoDevice(new KenwoodStereoImpl()).build());
+		this.cars.add(new CarBuilder().withBrand(Brand.randomBrand()).withKmDriven(125000).withNumberOfSeats(6)
+		        .withProductionDate(LocalDate.of(2011, 4, 11)).withStereoDevice(new JVCStereoImpl()).build());
+	}
 
-    @Override
-    public List<Car> getAllCars() {
-        return this.cars;
-    }
+	@Override
+	public List<Car> getAllCars() {
+		return this.cars;
+	}
 
-    @Override
-    public void addCar(final Car aCar) {
-        this.cars.add(aCar);
-    }
+	@Override
+	public void addCar(final Car aCar) {
+		this.cars.add(aCar);
+	}
 }

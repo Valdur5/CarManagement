@@ -12,7 +12,7 @@ import de.pandigo.cars.models.stereo.KenwoodStereoImpl;
 
 public class CarsServiceMock implements CarsService {
 
-    private final ArrayList<Car> cars = new ArrayList<>();
+    private final List<Car> cars = new ArrayList<>();
 
     public CarsServiceMock() {
         this.cars.add(new CarBuilder()
